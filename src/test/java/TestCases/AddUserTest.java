@@ -34,7 +34,7 @@ public class AddUserTest extends BaseClass {
         Assert.assertEquals(driver.findElement(Users.addUserTitle).getText(),"Add user","Title is not correct");
         addUsers addUsers = new addUsers(driver);
         addUsers.addUsersSteps();
-        //Assert.assertEquals(driver.findElement(Users.successMessage).getText(),"Success! The user has been created.","Title is not correct");
+        Assert.assertEquals(driver.findElement(Users.successMessage).getText(),"Success! The user has been created.","Title is not correct");
 
     }
 }
