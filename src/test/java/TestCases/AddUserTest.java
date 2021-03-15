@@ -8,28 +8,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import steps.Login;
-import steps.addUsers;
+import steps.addUsers.addUsers;
+import steps.addUsers.navigateAddUsers;
 import steps.clickAdminConsole;
 
 public class AddUserTest extends BaseClass {
     @Test
     public void testAddUser(){
 
-        clickAdminConsole clickAdminConsole = new clickAdminConsole(driver);
-        clickAdminConsole.GoToAdminConsole();
+
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.presenceOfElementLocated(LoginPage.loginButton));
-        Assert.assertEquals(driver.findElement(LoginPage.loginTitle).getText(), "Login", "Login text is not correct");
-        Login login = new Login(driver);
-        login.LoginAction();
-        wait.until(ExpectedConditions.presenceOfElementLocated(Dashboard.usersTab));
-        Assert.assertEquals(driver.findElement(Dashboard.usersTab).getText(), "Users", "Tab text is not correct");
 
-        addUsers addUsers = new addUsers(driver);
-        addUsers.navigateToAddUserForm();
+        clickAdminConsole clickAdminConsole = new clickAdminConsole(driver);
+        clickAdminConsole.GoToAdminConsole();
+        Login login = new Login(driver);
+        login.LoginSteps();
+        wait.until(ExpectedConditions.presenceOfElementLocated(Dashboard.usersTab));
+
+        navigateAddUsers navigateAddUsers = new navigateAddUsers(driver);
+        navigateAddUsers.navigateToAddUserForm();
+
+
         wait.until(ExpectedConditions.presenceOfElementLocated(Users.addUserTitle));
         Assert.assertEquals(driver.findElement(Users.addUserTitle).getText(),"Add user","Title is not correct");
-        addUsers.addUsersAction();
+        addUsers addUsers = new addUsers(driver);
+        addUsers.addUsersSteps();
         //Assert.assertEquals(driver.findElement(Users.successMessage).getText(),"Success! The user has been created.","Title is not correct");
 
     }

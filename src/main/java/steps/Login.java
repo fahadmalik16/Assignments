@@ -11,7 +11,7 @@ public class Login {
     public Login(WebDriver driver){
         this.driver = driver;
     }
-    public void LoginAction(){
+    public void LoginSteps(){
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.presenceOfElementLocated(LoginPage.loginButton));
 

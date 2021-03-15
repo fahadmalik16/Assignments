@@ -21,10 +21,10 @@ public class LoginTests extends BaseClass{
         clickAdminConsole.GoToAdminConsole();
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.presenceOfElementLocated(LoginPage.loginButton));
-        Assert.assertEquals(driver.findElement(LoginPage.loginTitle).getText(), "Login", "Login text is not correct");
         Login login = new Login(driver);
-        login.LoginAction();
+        login.LoginSteps();
         wait.until(ExpectedConditions.presenceOfElementLocated(Dashboard.usersTab));
+        // Asserting that the users tab text is equal to the expected one on the Dashboard screen after successful login
         Assert.assertEquals(driver.findElement(Dashboard.usersTab).getText(), "Users", "Tab text is not correct");
     }
 }
