@@ -1,17 +1,23 @@
 package TestCases;
 
+import components.Dashboard;
 import components.keyCloakPage;
 import constants.Constants;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.*;
+import steps.Login;
+import steps.addUsers.navigateAddUsers;
+import steps.clickAdminConsole;
 
 
 public class BaseClass {
     WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp(){
         System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
@@ -21,9 +27,9 @@ public class BaseClass {
         driver.manage().window().maximize();
 
     }
-    //@AfterClass
-    //public void tearDown(){
-     //   driver.quit();
-    //}
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
+    }
 
 }

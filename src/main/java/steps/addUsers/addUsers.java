@@ -14,26 +14,26 @@ public class addUsers {
         this.driver = driver;
     }
 
-    public void addUsersSteps(){
-
+    public void addUsersSteps(String username1, String email1,String fname, String lname){
+        WebDriverWait wait = new WebDriverWait(driver,10);
         driver.findElement(Users.usernameField).click();
         driver.findElement(Users.usernameField).clear();
-        driver.findElement(Users.usernameField).sendKeys("xyzuser");
+        driver.findElement(Users.usernameField).sendKeys(username1);
         driver.findElement(Users.emailField).click();
         driver.findElement(Users.emailField).clear();
-        driver.findElement(Users.emailField).sendKeys("abcd@gmail.com");
+        driver.findElement(Users.emailField).sendKeys(email1);
         driver.findElement(Users.firstNameField).click();
         driver.findElement(Users.firstNameField).clear();
-        driver.findElement(Users.firstNameField).sendKeys("football");
+        driver.findElement(Users.firstNameField).sendKeys(fname);
         driver.findElement(Users.lastNameField).click();
         driver.findElement(Users.lastNameField).clear();
-        driver.findElement(Users.lastNameField).sendKeys("hockey");
-        driver.findElement(Users.actionsDropdown).click();
+        driver.findElement(Users.lastNameField).sendKeys(lname);
+        //driver.findElement(Users.actionsDropdown).click();
         //driver.findElement(Users.dropdownOption).click();
         //elect dropdownElement = new Select(driver.findElement(Users.actionsDropdown));
         //dropdownElement.selectByValue("CONFIGURE_TOTP");
         driver.findElement(Users.saveButton).click();
-
+        wait.until(ExpectedConditions.presenceOfElementLocated(Users.roleMapping));
     }
 
 }

@@ -17,5 +17,18 @@ public class Users {
     public static By saveButton = By.cssSelector("div.col-md-10.col-md-offset-2 > button.ng-binding.btn.btn-primary");
     public static By cancelButton = By.cssSelector("div.col-md-10.col-md-offset-2 > button.ng-binding.btn.btn-default");
     public static By successMessage = By.cssSelector("strong.ng-binding");
+    public static By roleMapping = By.linkText("Role Mappings");
+
+
+    public static By user = By.cssSelector("#assigned > option.ng-binding.ng-scope");
+    public static By superAdmin = By.xpath("//select[@id='available']/option[5]");
+    public static By addSelected = By.cssSelector("button.btn.btn-default.ng-binding");
+    public static By removeSelected = By.xpath("(//button[@type='submit'])[2]");
+    public static By searchField = By.xpath("//input[@type='text']");
+    public static By viewAllUsers = By.xpath("//button[text()='View all users']");
+    public static By username = By.xpath("td:nth-of-type(2) ");
+    public static By searchButton = By.xpath("//i[@id='userSearch']");
+    public static By tableRows = By.xpath("//table/tbody/tr");
+    public static By tableCol = By.xpath("//table[@id='user-table']/tbody/tr");
 
 }
