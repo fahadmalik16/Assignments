@@ -35,9 +35,10 @@ public class loginVerify {
         wait.until(ExpectedConditions.presenceOfElementLocated(NewCreatedUser.profileIcon));
 
         driver.findElement(NewCreatedUser.profileIcon).click();
-        return driver.findElement(NewCreatedUser.profileIcon).getText();
-
-        //driver.findElement(NewCreatedUser.Logout1).click();
+         String abcd = driver.findElement(NewCreatedUser.profileIcon).getText();
+        driver.findElement(NewCreatedUser.Logout1).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(LoginPage.emailField));
+        return abcd;
     }
 }
 

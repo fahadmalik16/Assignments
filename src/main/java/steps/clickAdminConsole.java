@@ -1,5 +1,6 @@
 package steps;
 
+import components.Dashboard;
 import components.LoginPage;
 import components.keyCloakPage;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,8 @@ public class clickAdminConsole {
         this.driver = driver;
     }
     public void GoToAdminConsole(){
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.presenceOfElementLocated(keyCloakPage.adminConsole));
 
         driver.findElement(keyCloakPage.adminConsole).click();
         // var loginText = driver.findElement(LoginPage.loginButton).getText();

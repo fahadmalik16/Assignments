@@ -25,9 +25,9 @@ public class BaseClass {
         //Launching browser
         driver.get(Constants.ipAddress);
         driver.manage().window().maximize();
-
+        driver.getWindowHandle();
     }
-    @AfterClass
+    @AfterTest
     public void tearDown() {
         driver.quit();
     }

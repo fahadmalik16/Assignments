@@ -6,6 +6,7 @@ import components.NewCreatedUser;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import steps.Login;
 import steps.addUsers.*;
@@ -39,21 +40,15 @@ public class AddUserTest extends BaseClass {
        // wait.until(ExpectedConditions.presenceOfElementLocated(NewCreatedUser.profileIcon));
         //wait.until(ExpectedConditions.presenceOfElementLocated(NewCreatedUser.profileIcon));
 
-        Assert.assertTrue(driver.findElement(NewCreatedUser.profileIcon).isDisplayed());
+        //Assert.assertTrue(driver.findElement(NewCreatedUser.profileIcon).isDisplayed());
         Assert.assertEquals(abcd,email1,"fail");
-        // testUsername= verifyUser.verifyUserStep();
-        //Assert.assertTrue(testUsername, "Use has not been added");
+
+        deleteUser deleteUser = new deleteUser(driver);
+        deleteUser.deleteUserStep(email1);
+
+
 
     }
-    //@DataProvider(name = "loginDatass")
 
-    //public Object[][] getDataFromDataprovider(){
-       // return new Object[][]
-            //    {
-                //        { "admin", "foobar" },
-              //          { "abcd", "UK" },
-              //          { "Su-admin", "foobar" }
-              //  };
 
-   // }
 }

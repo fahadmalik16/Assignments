@@ -15,7 +15,7 @@ public class addUsers {
     }
 
     public void addUsersSteps(String username1, String email1,String fname, String lname){
-        WebDriverWait wait = new WebDriverWait(driver,10);
+        WebDriverWait wait = new WebDriverWait(driver,30);
         driver.findElement(Users.usernameField).click();
         driver.findElement(Users.usernameField).clear();
         driver.findElement(Users.usernameField).sendKeys(username1);
